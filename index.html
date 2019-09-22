@@ -1923,6 +1923,11 @@ $(function() {
 
     };
 
+
+    $('body').mouseleave(function(e) {
+        console.log('Leaving body')
+    })
+
     $('.frb-amounts').on('input change', function(e) {
         var target = $(e.target);
         if ( target.attr('id') !== 'input_amount_other' ) {
