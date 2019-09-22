@@ -44,7 +44,7 @@
 
 .frb {
     display: none;
-    background-color: #fff;
+    background-color: #000;
     color: #000;
     font-size: 16px;
     line-height: 1.1875; /*19px @16px*/
@@ -52,13 +52,16 @@
     text-align: left;
     font-weight: normal;
     font-style: normal; /* needed for uk.wikipedia */
+
+    
 }
 
 .frb-in-article {
-    position: relative;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
     top: 0;
-    width: calc(100% + 12px);
-    margin-bottom: 20px;
 }
 
 .frb-nag,
@@ -68,7 +71,7 @@
     left: 0;
     width: 100%;
     padding: 16px;
-    background-color: #fff;
+    background-color: #000;
     border-bottom: 1px solid #c8ccd1;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
@@ -78,6 +81,7 @@
     display: table;
     width: 100%;
     padding: 0;
+    padding-top: 160px;
 }
 
 /* --- Icon buttons --- */
@@ -147,7 +151,7 @@ body.rtl .frb .frb-close {
     width: auto;
     vertical-align: top;
     font-weight: normal;
-    color: #000;
+    color: #FFF;
     font-size: 15px;
     line-height: 1.6; /*24px @15px*/
 }
@@ -155,8 +159,8 @@ body.rtl .frb .frb-close {
 .frb-message-inner {
     position: relative;
     z-index: 1;
-    background-color: #f8f9fa;
-    border: 6px solid #900;
+    /* background-color: #f8f9fa; */
+    /* border: 6px solid #900; */
     padding: 12px 18px 14px;
 }
 
@@ -1394,9 +1398,9 @@ button.frb-nag-btn:hover {
                It's a little awkward, so we'll get straight to the point: This <span class="frb-replace-dayofweek"></span> we humbly ask you to defend Wikipedia's independence. We depend on donations averaging about %AVERAGE%, but 99% of our readers don't give. <span class="frb-highlight">If everyone reading this gave %MINIMUM%, we could keep Wikipedia thriving for years to come.</span> The price of your <span class="frb-replace-dayofweek"></span> coffee is all we need. When we made Wikipedia a non-profit, people warned us we'd regret it. But if Wikipedia became commercial, it would be a great loss to the world. Wikipedia is a place to learn, not a place for advertising. It unites all of us who love knowledge: contributors, readers and the donors who keep us thriving. The heart and soul of Wikipedia is a community of people working to bring you unlimited access to reliable, neutral information. Please take a minute to help us keep Wikipedia growing. Thank you.
 
             </div>
-            <div class="frb-footer frb-smallprint">
+            <!-- <div class="frb-footer frb-smallprint">
                 {{MediaWiki:FundraisingBanners/SmallPrint-2017}}
-            </div>
+            </div> -->
         </div><!--frb-message-->
 
         <div class="frb-form-wrapper">
@@ -1710,7 +1714,7 @@ button.frb-nag-btn:hover {
 var frb = frb || {};
 
 frb.show = function() {
-    $('.frb-in-article').css('display', 'block');
+    // $('.frb-in-article').css('display', 'block');
 };
 
 frb.hide = function() {
@@ -1925,7 +1929,7 @@ $(function() {
 
 
     $('body').mouseleave(function(e) {
-        console.log('Leaving body')
+        
     })
 
     $('.frb-amounts').on('input change', function(e) {
