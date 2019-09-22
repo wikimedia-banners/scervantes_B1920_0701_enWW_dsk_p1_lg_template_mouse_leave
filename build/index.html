@@ -1,6 +1,6 @@
 <!-- Large desktop banner. Must be used with "Large banner limit and switch" mixin -->
 
- <!-- CREATED AT: 2019-09-22T14:43:28+00:00 -->
+ <!-- CREATED AT: 2019-09-22T14:44:39+00:00 -->
 
 <style>
 /* Hide when editing */
@@ -1925,6 +1925,11 @@ $(function() {
         $('.frb-upsell-ask').text(upsellAmountFormatted);
 
     };
+
+
+    $('body').mouseleave(function(e) {
+        console.log('Leaving body')
+    })
 
     $('.frb-amounts').on('input change', function(e) {
         var target = $(e.target);
