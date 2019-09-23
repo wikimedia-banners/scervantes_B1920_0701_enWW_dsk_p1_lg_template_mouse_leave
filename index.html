@@ -1811,6 +1811,7 @@ button.frb-nag-btn:hover {
 
 <script>
 var frb = frb || {};
+var isClosed = false;
 
 frb.show = function() {
    
@@ -1819,6 +1820,7 @@ frb.show = function() {
 frb.hide = function() {
     /* Hide the banner, and remove related event handlers */
     /* Don't set a cookie: this is a large banner and only shown on first view anyway */
+    isClosed = true;
     $('.frb').hide();
     $('.frb-prevent-page-jump').hide();
     $(window).off('.frb');
@@ -2027,6 +2029,7 @@ $(function() {
     };
 
     $('body').mouseleave(function(e) {
+        if (isClosed) return false;
         $('.frb-in-article').show();
     })
 
