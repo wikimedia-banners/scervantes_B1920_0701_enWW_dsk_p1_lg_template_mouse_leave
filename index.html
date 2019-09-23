@@ -44,7 +44,7 @@
 
 .frb {
     display: none;
-    background-color: #000;
+    background-color: #fff;
     color: #000;
     font-size: 16px;
     line-height: 1.1875; /*19px @16px*/
@@ -52,16 +52,13 @@
     text-align: left;
     font-weight: normal;
     font-style: normal; /* needed for uk.wikipedia */
-
-    
 }
 
 .frb-in-article {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 0;
+    position: relative;
     top: 0;
+    width: calc(100% + 12px);
+    margin-bottom: 20px;
 }
 
 .frb-nag,
@@ -71,7 +68,7 @@
     left: 0;
     width: 100%;
     padding: 16px;
-    background-color: #000;
+    background-color: #fff;
     border-bottom: 1px solid #c8ccd1;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
@@ -81,9 +78,6 @@
     display: table;
     width: 100%;
     padding: 0;
-    padding-top: 160px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 /* --- Icon buttons --- */
@@ -105,7 +99,6 @@
     right: 0;
     width: 18px;
     height: 18px;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='#FFFFFF' fill='none' stroke-linecap='round'%3E%3Cpath d='M1 1 l8 8 M9 1 l-8 8'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
     background-size: 12px 12px;
 }
 body.rtl .frb .frb-close {
@@ -119,7 +112,6 @@ body.rtl .frb .frb-close {
     left: 0;
     width: 20px;
     height: 18px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 16'%3E%3Cg fill='none' fill-rule='evenodd' transform='translate(1 1)'%3E%3Cpath stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.778' d='M7.181 13.285L.753 7 7.181.715'%3E%3C/path%3E%3Crect fill='%23000' width='18.182' height='1.778' x='.818' y='6.111' rx='.889'%3E%3C/rect%3E%3C/g%3E%3C/svg%3E");
     background-size: 20px 13px;
 }
 
@@ -153,7 +145,7 @@ body.rtl .frb .frb-close {
     width: auto;
     vertical-align: top;
     font-weight: normal;
-    color: #FFF;
+    color: #000;
     font-size: 15px;
     line-height: 1.6; /*24px @15px*/
 }
@@ -161,8 +153,8 @@ body.rtl .frb .frb-close {
 .frb-message-inner {
     position: relative;
     z-index: 1;
-    /* background-color: #f8f9fa; */
-    /* border: 6px solid #900; */
+    background-color: #f8f9fa;
+    border: 6px solid #900;
     padding: 12px 18px 14px;
 }
 
@@ -195,12 +187,11 @@ body.rtl .frb .frb-close {
 }
 
 .frb-message-icon {
+    float: left;
     margin-top: 4px; /*in px since margin is consistent on all bp*/
     margin-right: 2px;
-    height: 24px;
-    width: 24px;
-    display: inline-block;
-    margin-right: 16px;
+    height: 1em;
+    width: 1em;
 }
 
 .frb-nag .frb-message-icon {
@@ -223,10 +214,8 @@ body.rtl .frb-message-icon {
 }
 
 .frb-greeting {
-    font-family: Georgia;
-    display: inline-block;
+    display: block;
     margin-bottom: 0.5em;
-    font-size: 34px;
 }
 
 .frb-highlight {
@@ -296,7 +285,7 @@ body.rtl .frb-message-icon {
     width: 320px;
     height: 100%;
     vertical-align: top;
-    color: white;
+    background: #fff;
 }
 
 /*Triangle in article and fixed expanded state*/
@@ -333,7 +322,7 @@ body.rtl .frb-message-icon {
     text-align: left;
     font-size: 14px;
     line-height: 1.2142857143; /*17px @14px*/
-    color: #AAAAAA;
+    color: #54595d;
     transition: all .25s ease-in-out;
 }
 
@@ -474,7 +463,6 @@ body.rtl .frb-radio {
     cursor: pointer;
     white-space: nowrap;
     font-weight: bold;
-    color: white;
 }
 
 body.rtl .frb-radio-label {
@@ -796,6 +784,7 @@ body.rtl #frb-amt-other-input {
     cursor: pointer;
     font-size: 14px;
     line-height: 1.3571428571; /*19px @14px*/
+    color: #000;
 }
 
 .frb-checkbox-label::before,
@@ -1385,28 +1374,243 @@ button.frb-nag-btn:hover {
     margin-left: 0;
     visibility: visible;
 }
+
+/* Dark mode */
+
+.frb.dark {
+    background-color: #000; 
+}
+.frb-in-article.dark {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.frb-in-article.dark .frb-layout {
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 0;
+    padding-top: 160px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.frb-in-article.dark .frb-highlight {
+    border-color: #ff4f4f;
+}
+.frb-in-article.dark .frb-error{
+    color: #ff4f4f;
+}
+
+.frb-in-article.dark .frb-message-icon circle {
+    fill: #ff4f4f;
+}
+.frb-in-article.dark .frb-close {
+    outline: none;
+    background-image: none;
+    
+}
+.frb-in-article.dark .frb-close g {
+    stroke: white;
+}
+
+.frb-in-article.dark .frb-back {
+    outline: none;
+    background-image: none;
+    
+}
+.frb-in-article.dark .frb-back g {
+    stroke: white;
+    fill: white;
+}
+.frb-in-article.dark .frb-message {
+    color: #FFF;
+}
+.frb-in-article.dark .frb-message-inner {
+   border: none;
+   background: transparent;
+}
+.frb-in-article.dark .frb-form-wrapper {
+    background: transparent;
+    color: white;
+}
+.frb-in-article.dark .frb-form-wrapper legend,
+.frb-in-article.dark .frb-rml-form-legend {
+    color: white;
+}
+.frb-in-article.dark .frb-rml-link {
+    color: white;
+}
+.frb-in-article.dark .frb-radio-label {
+    color: white;
+}
+.frb-in-article.dark #frb-amt-other-input::-webkit-input-placeholder {
+    color: #FFF;
+}
+.frb-in-article.dark #frb-amt-other-input::-moz-placeholder {
+    opacity: 1;
+    color: #FFF;
+}
+.frb-in-article.dark #frb-amt-other-input:-ms-input-placeholder {
+    color: #FFF;
+}
+.frb-in-article.dark #frb-amt-other-input:-moz-placeholder {
+    opacity: 1;
+    color: #FFF;
+}
+.frb-in-article.dark #frb-amt-other-input {
+    border-bottom: 1px solid #FFF;
+    color: unset;
+}
+.frb-in-article.dark .frb-checkbox-label {
+    color: unset;
+}
+.frb-in-article.dark .frb-submit.active .frb-icon-lock {
+    fill: white;
+}
+.frb-in-article.dark .frb-icon-lock {
+    fill: #36c;
+}
+.frb-in-article.dark input[type="text"] {
+    background: transparent;
+    color: white;
+}
+
+.frb-in-article.dark .frb-monthly-diff-amt-link {
+    color: #FFF;
+}
+.frb-in-article.dark .frb-footer {
+    display: none;
+}
+
+/* Dark mode */
+
+.frb.dark {
+    background-color: #000; 
+}
+.frb-in-article.dark {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.frb-in-article.dark .frb-layout {
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 0;
+    padding-top: 160px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.frb-in-article.dark .frb-highlight {
+    border-color: #ff4f4f;
+}
+.frb-in-article.dark .frb-error{
+    color: #ff4f4f;
+}
+
+.frb-in-article.dark .frb-message-icon circle {
+    fill: #ff4f4f;
+}
+.frb-in-article.dark .frb-close {
+    outline: none;
+    background-image: none;
+    
+}
+.frb-in-article.dark .frb-close g {
+    stroke: white;
+}
+
+.frb-in-article.dark .frb-back {
+    outline: none;
+    background-image: none;
+    
+}
+.frb-in-article.dark .frb-back g {
+    stroke: white;
+    fill: white;
+}
+.frb-in-article.dark .frb-message {
+    color: #FFF;
+}
+.frb-in-article.dark .frb-message-inner {
+   border: none;
+   background: transparent;
+}
+.frb-in-article.dark .frb-form-wrapper {
+    background: transparent;
+    color: white;
+}
+.frb-in-article.dark .frb-form-wrapper legend,
+.frb-in-article.dark .frb-rml-form-legend {
+    color: white;
+}
+.frb-in-article.dark .frb-rml-link {
+    color: white;
+}
+.frb-in-article.dark .frb-radio-label {
+    color: white;
+}
+.frb-in-article.dark #frb-amt-other-input::-webkit-input-placeholder {
+    color: #FFF;
+}
+.frb-in-article.dark #frb-amt-other-input::-moz-placeholder {
+    opacity: 1;
+    color: #FFF;
+}
+.frb-in-article.dark #frb-amt-other-input:-ms-input-placeholder {
+    color: #FFF;
+}
+.frb-in-article.dark #frb-amt-other-input:-moz-placeholder {
+    opacity: 1;
+    color: #FFF;
+}
+.frb-in-article.dark #frb-amt-other-input {
+    border-bottom: 1px solid #FFF;
+    color: unset;
+}
+.frb-in-article.dark .frb-checkbox-label {
+    color: unset;
+}
+.frb-in-article.dark .frb-submit.active .frb-icon-lock {
+    fill: white;
+}
+.frb-in-article.dark .frb-icon-lock {
+    fill: #36c;
+}
+.frb-in-article.dark input[type="text"] {
+    background: transparent;
+    color: white;
+}
+
+.frb-in-article.dark .frb-monthly-diff-amt-link {
+    color: #FFF;
+}
+.frb-in-article.dark .frb-footer {
+    display: none;
+}
+
 </style>
 
 <div class="frb-prevent-page-jump"></div>
 
-<div class="frb frb-in-article" id="frb-main" style="display: none;">
-    <!-- hidden by default until have checked the cookies -->
+<div class="frb frb-in-article" id="frb-main" style="display: none;"><!-- hidden by default until have checked the cookies -->
 
     <div class="frb-layout">
 
         <div class="frb-message">
             <div class="frb-message-inner">
-                <div class="frb-message__title">
-                    <svg class="frb-message-icon" role="img" aria-labelledby="frb-message-icon-title" width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><title id="frb-message-icon-title">Info icon</title><g fill-rule="nonzero" fill="none"><circle fill="#900" cx="10.492" cy="14.492" r="10.492"></circle><path d="M12.681 11.754l-2.267 7.864c-.125.45-.188.745-.188.885 0 .08.033.156.1.226.066.07.136.105.21.105.125 0 .25-.055.376-.165.332-.273.73-.767 1.194-1.482l.376.22c-1.113 1.94-2.296 2.91-3.55 2.91-.48 0-.86-.135-1.144-.404a1.349 1.349 0 0 1-.426-1.023c0-.273.062-.62.188-1.04l1.537-5.286c.147-.51.221-.892.221-1.15a.566.566 0 0 0-.21-.432c-.14-.125-.332-.188-.575-.188-.11 0-.243.004-.398.011l.144-.442 3.749-.609h.663zm-.685-5.087c.457 0 .842.159 1.156.475.313.318.47.701.47 1.15 0 .45-.16.834-.476 1.15-.317.318-.7.476-1.15.476-.443 0-.822-.158-1.14-.475a1.566 1.566 0 0 1-.475-1.15c0-.45.157-.833.47-1.15a1.549 1.549 0 0 1 1.145-.476z" fill="#FFF"></path></g></svg>
-                    <span class="frb-greeting">
-                        {{{FR2015_translations,dsk-lg-greeting}}}
-                    </span>
-                </div>
-                
-                <p>
-                    It's a little awkward, so we'll get straight to the point: This <span class="frb-replace-dayofweek"></span> we humbly ask you to defend Wikipedia's independence. We depend on donations averaging about %AVERAGE%, but 99% of our readers don't give. <span class="frb-highlight">If everyone reading this gave %MINIMUM%, we could keep Wikipedia thriving for years to come.</span> The price of your <span class="frb-replace-dayofweek"></span> coffee is all we need. We know that most people will ignore this message. But if Wikipedia is useful to you, please take a minute to help keep it growing. Thank you.
-                </p>
-               
+                <svg class="frb-message-icon" role="img" aria-labelledby="frb-message-icon-title" width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><title id="frb-message-icon-title">Info icon</title><g fill-rule="nonzero" fill="none"><circle fill="#900" cx="10.492" cy="14.492" r="10.492"></circle><path d="M12.681 11.754l-2.267 7.864c-.125.45-.188.745-.188.885 0 .08.033.156.1.226.066.07.136.105.21.105.125 0 .25-.055.376-.165.332-.273.73-.767 1.194-1.482l.376.22c-1.113 1.94-2.296 2.91-3.55 2.91-.48 0-.86-.135-1.144-.404a1.349 1.349 0 0 1-.426-1.023c0-.273.062-.62.188-1.04l1.537-5.286c.147-.51.221-.892.221-1.15a.566.566 0 0 0-.21-.432c-.14-.125-.332-.188-.575-.188-.11 0-.243.004-.398.011l.144-.442 3.749-.609h.663zm-.685-5.087c.457 0 .842.159 1.156.475.313.318.47.701.47 1.15 0 .45-.16.834-.476 1.15-.317.318-.7.476-1.15.476-.443 0-.822-.158-1.14-.475a1.566 1.566 0 0 1-.475-1.15c0-.45.157-.833.47-1.15a1.549 1.549 0 0 1 1.145-.476z" fill="#FFF"></path></g></svg>
+                <span class="frb-greeting">
+                    {{{FR2015_translations,dsk-lg-greeting}}}
+                </span>
+
+               It's a little awkward, so we'll get straight to the point: This <span class="frb-replace-dayofweek"></span> we humbly ask you to defend Wikipedia's independence. We depend on donations averaging about %AVERAGE%, but 99% of our readers don't give. <span class="frb-highlight">If everyone reading this gave %MINIMUM%, we could keep Wikipedia thriving for years to come.</span> The price of your <span class="frb-replace-dayofweek"></span> coffee is all we need. When we made Wikipedia a non-profit, people warned us we'd regret it. But if Wikipedia became commercial, it would be a great loss to the world. Wikipedia is a place to learn, not a place for advertising. It unites all of us who love knowledge: contributors, readers and the donors who keep us thriving. The heart and soul of Wikipedia is a community of people working to bring you unlimited access to reliable, neutral information. Please take a minute to help us keep Wikipedia growing. Thank you.
 
             </div>
         </div><!--frb-message-->
@@ -1417,7 +1621,11 @@ button.frb-nag-btn:hover {
 
                 <div class="frb-step frb-step-1">
 
-                    <button class="frb-icon-btn frb-close" aria-label="{{{FR2015_translations,close}}}"></button>
+                    <div class="frb-close" tabindex="0">
+                        <svg class="frb-icon-btn frb-close" width="11" height="11" viewBox="0 0 11 11" xmlns="http://www.w3.org/2000/svg"><title>{{{FR2015_translations,close}}}</title><g stroke="#72777d" fill="none" fill-rule="evenodd" stroke-linecap="round"><path d="M2 3l7 7M9 3l-7 7"></path></g></svg>
+                    </div>
+
+                    <!-- <button class="frb-icon-btn frb-close" aria-label="{{{FR2015_translations,close}}}"></button> -->
 
                     <fieldset class="frb-frequency">
                         <legend class="frb-numbered error-highlight">
@@ -1478,7 +1686,6 @@ button.frb-nag-btn:hover {
                                 <label class="frb-amt-other-label" for="frb-amt-other-input">{{{FR2015_translations,other}}}</label>
                             </li>
                         </ul>
-                       <div class="frb-triangle"></div>
                         <div class="frb-ptf frb-checkbox-wrapper" style="display: none;">
                             <input class="frb-checkbox" id="frb-ptf-checkbox" name="ptf" type="checkbox" value="true" onclick="frb.updateFeeDisplay();">
                             <label class="frb-checkbox-label" for="frb-ptf-checkbox">{{{FR2015_translations,generously-add}}} </label>
@@ -1578,7 +1785,11 @@ button.frb-nag-btn:hover {
 
                 <div class="frb-step frb-step-optin">
 
-                    <button class="frb-icon-btn frb-back" aria-label="{{{FR2015_translations,back}}}"></button>
+                    <div class="frb-back close-optin" tabindex="0">
+                        <svg class="frb-icon-btn frb-back" aria-labelledby="frb-icon-back-title" xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16"><title id="frb-icon-back-title">{{{FR2015_translations,back}}}</title><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><path stroke="#72777d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.778" d="M7.181 13.285L.753 7 7.181.715"></path><rect width="18.182" height="1.778" x=".818" y="6.111" fill="#72777d" rx=".889"></rect></g></svg>
+                    </div>
+
+                    <!-- <button class="frb-icon-btn frb-back" aria-label="{{{FR2015_translations,back}}}"></button> -->
 
                     <fieldset class="frb-fieldset frb-optin">
                         <legend class="frb-numbered">
@@ -1617,7 +1828,9 @@ button.frb-nag-btn:hover {
 
                 <div class="frb-step frb-step-upsell">
 
-                    <button class="frb-icon-btn frb-back" aria-label="{{{FR2015_translations,back}}}"></button>
+                    <div class="frb-back close-optin" tabindex="0">
+                        <svg class="frb-icon-btn frb-back" aria-labelledby="frb-icon-back-title" xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16"><title id="frb-icon-back-title">{{{FR2015_translations,back}}}</title><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><path stroke="#72777d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.778" d="M7.181 13.285L.753 7 7.181.715"></path><rect width="18.182" height="1.778" x=".818" y="6.111" fill="#72777d" rx=".889"></rect></g></svg>
+                    </div>
 
                     <div class="frb-upsell">
                         <p class="frb-upsell-cta">{{{FR2015_translations,why-not-make}}}</p>
@@ -1642,7 +1855,9 @@ button.frb-nag-btn:hover {
 
                 <div class="frb-step frb-step-monthly-diff-amt">
 
-                    <button class="frb-icon-btn frb-back" aria-label="{{{FR2015_translations,back}}}"></button>
+                    <div class="frb-back close-optin" tabindex="0">
+                        <svg class="frb-icon-btn frb-back" aria-labelledby="frb-icon-back-title" xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16"><title id="frb-icon-back-title">{{{FR2015_translations,back}}}</title><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><path stroke="#72777d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.778" d="M7.181 13.285L.753 7 7.181.715"></path><rect width="18.182" height="1.778" x=".818" y="6.111" fill="#72777d" rx=".889"></rect></g></svg>
+                    </div>
 
                     <p class="frb-upsell-ty">{{{FR2015_translations,thank-you-support}}}</p>
                     <div class="frb-amt-monthly">
@@ -1700,29 +1915,12 @@ button.frb-nag-btn:hover {
 
 </div>
 
-<div class="frb frb-nag" style="display: none;">
-    <div class="frb-layout">
-        <div class="frb-message">
-            <div class="frb-message-inner">
-                <svg class="frb-message-icon" role="img" aria-labelledby="frb-message-icon-title-nag" width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><title id="frb-message-icon-title-nag">Info icon</title><g fill-rule="nonzero" fill="none"><circle fill="#900" cx="10.492" cy="14.492" r="10.492"></circle><path d="M12.681 11.754l-2.267 7.864c-.125.45-.188.745-.188.885 0 .08.033.156.1.226.066.07.136.105.21.105.125 0 .25-.055.376-.165.332-.273.73-.767 1.194-1.482l.376.22c-1.113 1.94-2.296 2.91-3.55 2.91-.48 0-.86-.135-1.144-.404a1.349 1.349 0 0 1-.426-1.023c0-.273.062-.62.188-1.04l1.537-5.286c.147-.51.221-.892.221-1.15a.566.566 0 0 0-.21-.432c-.14-.125-.332-.188-.575-.188-.11 0-.243.004-.398.011l.144-.442 3.749-.609h.663zm-.685-5.087c.457 0 .842.159 1.156.475.313.318.47.701.47 1.15 0 .45-.16.834-.476 1.15-.317.318-.7.476-1.15.476-.443 0-.822-.158-1.14-.475a1.566 1.566 0 0 1-.475-1.15c0-.45.157-.833.47-1.15a1.549 1.549 0 0 1 1.145-.476z" fill="#FFF"></path></g></svg>
-                {{{FR2015_translations,if-everyone-thrive}}}
-            </div>
-        </div>
-        <div class="frb-form-wrapper">
-            <button class="frb-icon-btn frb-close" aria-label="{{{FR2015_translations,close}}}"></button>
-            <div class="frb-nag-btns">
-                <button class="frb-nag-btn" id="nag-yes-btn" tabindex="0">{{{FR2015_translations,yes-donate-now}}}</button>
-                <button class="frb-nag-btn" id="nag-rml-btn" tabindex="0">{{{FR2015_translations,no-maybe-later}}}</button>
-            </div>
-        </div><!-- frb-form-wrapper -->
-    </div>
-</div>
 
 <script>
 var frb = frb || {};
 
 frb.show = function() {
-    // $('.frb-in-article').css('display', 'block');
+    $('.frb').addClass('dark');
 };
 
 frb.hide = function() {
@@ -1934,7 +2132,6 @@ $(function() {
         $('.frb-upsell-ask').text(upsellAmountFormatted);
 
     };
-
 
     $('body').mouseleave(function(e) {
         $('.frb-in-article').show();
@@ -2189,93 +2386,6 @@ $(function() {
     // On Load
     var bannerOuterHeight = $('.frb-in-article').outerHeight( true );
     var stickyHeaderTop = bannerOuterHeight + $('.frb-in-article').offset().top + 200;
-
-    frb.initNag = function() {
-
-        // Intercept TOC clicks, and account for nag height
-        $('#toc ul > li a').on('click.frb', function(e) {
-            e.preventDefault();
-
-            var anchor = $(this).attr('href').replace('#','');
-            anchor = $("[id='"+anchor+"']");
-
-            var offsetTop = anchor.offset().top - $('.frb-nag').outerHeight();
-            $('body, html').animate({ scrollTop: offsetTop }, 10);
-            window.location.hash = $(this).attr('href');
-        });
-
-        // Scroll to section, accounting for nag height
-        if ( window.location.hash ) {
-            var agent = navigator.userAgent;
-            var offsetTop;
-            var hash = decodeURI(window.location.hash).replace('#','');
-            hash = $("[id='"+hash+"']");
-
-            offsetTop = hash.offset().top + bannerOuterHeight - $('.frb-nag').outerHeight();
-            $('body, html').animate( { scrollTop: offsetTop }, 100 );
-        }
-
-        $(window).on('resize.frb', function() {
-            bannerOuterHeight = $('.frb-in-article').outerHeight( true );
-            stickyHeaderTop = bannerOuterHeight + $('.frb-in-article').offset().top + 200;
-        });
-
-        function scrollFunction() {
-            if( $(window).scrollTop() > stickyHeaderTop ) {
-                if ( !frb.fixed ) {
-                    $('.frb-nag').show();
-                    $('.frb-rml').appendTo('.frb-nag .frb-form-wrapper');
-                }
-            } else {
-                if ( frb.fixed ) {
-                    $('.frb-prevent-page-jump')
-                        .removeClass('frb-in-article')
-                        .hide();
-                    $('#frb-main')
-                        .removeClass('frb-fixed')
-                        .addClass('frb-in-article');
-                    $('.frb-rml').appendTo('#frb-main .frb-form-wrapper');
-                    frb.fixed = false;
-                } else {
-                    $('.frb-nag').hide();
-                    $('.frb-rml').appendTo('#frb-main .frb-form-wrapper');
-                }
-            }
-        }
-
-        $(window).on('load.frb scroll.frb resize.frb', function() {
-            scrollFunction();
-        });
-
-        frb.clickNag = function(e) {
-            // Add spacer to prevent jump
-            var inArticleHeight = $('#frb-main').outerHeight();
-            $('.frb-prevent-page-jump')
-                .height( inArticleHeight )
-                .addClass('frb-in-article') // So that it can be used for stickyHeader calcs
-                .show();
-
-            $('#frb-main')
-                .removeClass('frb-in-article')
-                .addClass('frb-fixed');
-
-            $('.frb-rml').appendTo('#frb-main .frb-form-wrapper')
-            $('.frb-nag').hide();
-
-            frb.fixed = true;
-            frb.extraData.clickedNag = 1;
-            return false;
-        };
-
-        $('.frb-nag').on( 'click', frb.clickNag );
-        $('#nag-yes-btn').on( 'click', frb.clickNag );
-
-        $('#nag-rml-btn').on( 'click', function(e) {
-            $('.frb-nag').addClass('frb-rml-displayed');
-            $('.frb-nag').off('click'); // Remove so they can interact with RML
-        });
-
-    };
 
     $('.close-rml').on('click', function(e) {
         $('.frb-nag').removeClass('frb-rml-displayed');
